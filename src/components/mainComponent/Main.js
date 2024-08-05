@@ -1,38 +1,65 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import ProductList from './ProductList';
+import '../../styles/Main.css';
 
-const Main = ({ openProductModal }) => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+const Main = ({
+  products,
+  filteredProducts,
+  minPrice,
+  setMinPrice,
+  maxPrice,
+  setMaxPrice,
+  selectedCategory,
+  setSelectedCategory,
+  resetFilters,
+  openProductModal
+}) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   useEffect(() => {
-    // TODO: Fetch products from API or load from local data
-    const dummyProducts = [
-      { id: 1, name: 'Product 1', price: 19.99, category: 'Category A' },
-      { id: 2, name: 'Product 2', price: 29.99, category: 'Category B' },
-      { id: 3, name: 'Product 3', price: 39.99, category: 'Category A' },
-      // Add more dummy products as needed
-    ];
-    setProducts(dummyProducts);
-    setFilteredProducts(dummyProducts);
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setSidebarOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleFilter = (filters) => {
-    // TODO: Implement filtering logic
-    console.log('Applying filters:', filters);
-    // For now, we'll just set filtered products to all products
-    setFilteredProducts(products);
-  };
-
   return (
-    <main className="container my-4">
+    <main className="container-xxl my-4 px-4 px-xxl-5 main-content">
       <div className="row">
-        <div className="col-md-3">
-          <Sidebar onFilter={handleFilter} />
+        {/* Sidebar toggle button for mobile */}
+        <div className="col-12 d-md-none mb-3 d-flex justify-content-center">
+          <button className="btn btn-primary" onClick={toggleSidebar}>
+            {sidebarOpen ? 'Close Filters' : 'Open Filters'}
+          </button>
         </div>
+       
+        <div className="col-md-3 mb-4">
+          <Sidebar
+            products={products}
+            minPrice={minPrice}
+            setMinPrice={setMinPrice}
+            maxPrice={maxPrice}
+            setMaxPrice={setMaxPrice}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            resetFilters={resetFilters}
+            isOpen={sidebarOpen}
+            toggleSidebar={toggleSidebar}
+          />
+        </div>
+       
         <div className="col-md-9">
-          <ProductList products={filteredProducts} openProductModal={openProductModal} />
+          <ProductList
+            products={filteredProducts}
+            openProductModal={openProductModal}
+          />
         </div>
       </div>
     </main>

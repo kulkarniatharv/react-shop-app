@@ -7,14 +7,13 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-4 mb-3 mb-md-0">
             <h5>About Us</h5>
-            <p>We are a leading online shopping destination, offering a wide range of products at competitive prices.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus odio quam, tincidunt non scelerisque eu, efficitur nec diam. Mauris maximus massa et risus pharetra mattis. Nunc tincidunt sollicitudin libero sed vulputate. Nam imperdiet luctus elit. In maximus ornare nisi, id pellentesque sapien luctus.</p>
           </div>
           <div className="col-md-4 mb-3 mb-md-0">
             <h5>Quick Links</h5>
             <ul className="list-unstyled">
               <li><a href="#" className="text-light">Home</a></li>
               <li><a href="#" className="text-light">Products</a></li>
-              <li><a href="#" className="text-light">About</a></li>
               <li><a href="#" className="text-light">Contact</a></li>
             </ul>
           </div>

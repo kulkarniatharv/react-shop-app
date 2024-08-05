@@ -1,0 +1,131 @@
+/* CartModal.css */
+.cart-modal .modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cart-modal .modal-header {
+    padding: 1.5rem;
+}
+
+.cart-modal .modal-title {
+    font-weight: 600;
+    color: #333;
+}
+
+.cart-title {
+    font-size: 1.75rem;
+}
+
+.cart-items {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.cart-item {
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+}
+
+.cart-item-image img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 0.25rem;
+}
+
+.quantity-control {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.quantity-control .btn {
+    border: none;
+    background-color: transparent;
+    color: #495057;
+    transition: all 0.2s ease;
+    padding: 0.25rem 0.5rem;
+}
+
+.quantity-control .btn:hover {
+    background-color: #e9ecef;
+}
+
+.quantity {
+    min-width: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.remove-btn {
+    padding: 0.25rem 0.5rem;
+    margin-left: 1rem;
+    border-radius: 50%;
+}
+
+.remove-btn:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.item-total {
+    font-size: 1.1em;
+    color: #28a745;
+}
+
+/* Custom scrollbar */
+.cart-items::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cart-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.cart-items::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media (max-width: 767.99px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item-image {
+        margin-bottom: 1rem;
+    }
+
+    .quantity-control,
+    .item-total,
+    .remove-btn {
+        margin-top: 0.5rem;
+    }
+}

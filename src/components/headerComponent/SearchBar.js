@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-
+const SearchBar = ({ searchTerm, setSearchTerm }) => {
   const handleSearch = (e) => {
     e.preventDefault();
-    // TODO: Implement search functionality
-    console.log('Searching for:', searchTerm);
+    // The actual filtering is done in the App component
   };
 
   return (

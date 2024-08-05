@@ -1,0 +1,42 @@
+@media (max-width: 767.99px) {
+    .sidebar-wrapper {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        z-index: 1030;
+        overflow-y: auto;
+        transition: left 0.3s ease;
+        background-color: #f8f9fa;
+        padding: 1rem;
+    }
+
+    .sidebar-wrapper.show {
+        left: 0;
+    }
+}
+
+/* Ensure sidebar is always visible on larger screens */
+@media (min-width: 768px) {
+    .sidebar-wrapper {
+        position: sticky;
+        top: 1rem;
+        height: calc(100vh - 2rem);
+        overflow-y: auto;
+    }
+}
+
+.main-content {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1400px) {
+    .main-content {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+}
